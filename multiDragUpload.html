@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    label {
+        font-size: 18px;
+    }
+
+    label[for="upload"] {
+        cursor: pointer;
+    }
+
+    .image-upload {
+        display: inline-block;
+    }
+
+    .upload-plate {
+        display: inline-block;
+        padding-left: 12px;
+        padding-top: 12px;
+    }
+
+    .upload-table {
+        padding-left: 12px;
+        padding-top: 12px;
+        display: inline-block;
+        width: 400px;
+    }
+
+    .upload-wrapper-row {
+        display: inline-block;
+        height: 133px;
+    }
+
+    .upload-wrapper-span {
+        padding-right: 6px;
+    }
+
+    #upload-wrapper {
+        background-color: rgba(255, 255, 255, 0.664);
+        margin: 0 auto;
+        display: inline-block;
+        border-radius: 8px;
+        text-align: center;
+        letter-spacing: -0.5;
+        padding: 0.7em 1em 0.5em 1em;
+        transition: box-shadow 0.5s, background-color 0.5s;
+        border: 1px solid black;
+        width: 320px;
+        height: 320px;
+        cursor: pointer;
+    }
+
+    .upload-img {
+        width: 200px;
+        height: 150px;
+        opacity: 0.2;
+
+        /* 그림 올릴시 이미지 크기는 250*230 으로 */
+    }
+
+    .upload-wrapper-child {
+        background-color: rgba(255, 255, 255, 0.664);
+        margin: 0 auto;
+        display: inline-block;
+        border-radius: 8px;
+        text-align: center;
+        letter-spacing: -0.5;
+        padding: 7px 10px 5px 5px;
+        transition: box-shadow 0.5s, background-color 0.5s;
+        border: 1px solid black;
+        width: 120px;
+        height: 120px;
+    }
+
+    .upload-img-child {
+        width: 100px;
+        height: 80px;
+        border: 0px;
+        display: contents;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<body>
+    <!-- 그림등록 -->
+    <div>
+        <label style="padding: 20px 10px 5px 0px;">1. 그림 등록</label>
+        <br>
+        <div class="image-upload">
+            <div class="upload-plate">
+
+                <div id="upload-wrapper" class="upload-wrapper">
+                    <div style="float: right; width: 10px; height: 20px;">
+                        <a id="removeImgBtn" style="color:red;" href="#">X</a>
+                    </div>
+                    <label for="upload" class="upload-label">
+                        <p style="padding-bottom: 5px; font-size: 24px;">Click or Drag Here</p>
+                        <div id="image_preview" class="image_preview">
+                            <img id="image_previewAtimg" class="upload-img"
+                                src="https://uploads.codesandbox.io/uploads/user/1dcc6c5f-ac13-4c27-b2e3-32ade1d213e9/6YCZ-upload.svg">
+                        </div>
+                    </label>
+                    <input id="upload" class="image-upload" style="display:none;" type="file" accept="image/*"
+                        multiple="multiple">
+                </div>
+                <button id="removeAll" class="btn btn-outline-primary btn" style="display: block; margin-top: 10px;"
+                    type="button">Remove All</button>
+                <img src="nothing.png" height="10px">
+            </div>
+            <div class="upload-table">
+                <div class="upload-wrapper-row">
+                    <div id="upload-wrapper-child" class="upload-wrapper-child">
+                        <div style="float: right; width: 10px; height: 20px;">
+                            <a class="removeImgBtnChild" style="color:red;" href="#">X</a>
+                        </div>
+                        <div id="image_preview" class="image_preview">
+                            <img id="image_previewAtimg" class="upload-img-child" src="upload.svg">
+                        </div>
+                    </div>
+                    <span class="upload-wrapper-span"></span>
+                    <div id="upload-wrapper-child" class="upload-wrapper-child">
+                        <div style="float: right; width: 10px; height: 20px;">
+                            <a class="removeImgBtnChild" style="color:red;" href="#">X</a>
+                        </div>
+                        <div id="image_preview" class="image_preview">
+                            <img id="image_previewAtimg" class="upload-img-child" style="border: 0px;">
+                        </div>
+                    </div>
+                    <span class="upload-wrapper-span"></span>
+                    <div id="upload-wrapper-child" class="upload-wrapper-child">
+                        <div style="float: right; width: 10px; height: 20px;">
+                            <a class="removeImgBtnChild" style="color:red;" href="#">X</a>
+                        </div>
+                        <div id="image_preview" class="image_preview">
+                            <img id="image_previewAtimg" class="upload-img-child">
+                        </div>
+                    </div>
+                </div>
+                <div class="upload-wrapper-row">
+                    <div id="upload-wrapper-child" class="upload-wrapper-child">
+                        <div style="float: right; width: 10px; height: 20px;">
+                            <a class="removeImgBtnChild" style="color:red;" href="#">X</a>
+                        </div>
+                        <div id="image_preview" class="image_preview">
+                            <img id="image_previewAtimg" class="upload-img-child">
+                        </div>
+                    </div>
+                    <span class="upload-wrapper-span"></span>
+                    <div id="upload-wrapper-child" class="upload-wrapper-child">
+                        <div style="float: right; width: 10px; height: 20px;">
+                            <a class="removeImgBtnChild" style="color:red;" href="#">X</a>
+                        </div>
+                        <div id="image_preview" class="image_preview">
+                            <img id="image_previewAtimg" class="upload-img-child">
+                        </div>
+                    </div>
+                    <span class="upload-wrapper-span"></span>
+                    <div id="upload-wrapper-child" class="upload-wrapper-child">
+                        <div style="float: right; width: 10px; height: 20px;">
+                            <a class="removeImgBtnChild" style="color:red;" href="#">X</a>
+                        </div>
+                        <div id="image_preview" class="image_preview">
+                            <img id="image_previewAtimg" class="upload-img-child">
+                        </div>
+                    </div>
+                </div>
+                <div class="upload-wrapper-row">
+                    <div id="upload-wrapper-child" class="upload-wrapper-child">
+                        <div style="float: right; width: 10px; height: 20px;">
+                            <a class="removeImgBtnChild" style="color:red;" href="#">X</a>
+                        </div>
+                        <div id="image_preview" class="image_preview">
+                            <img id="image_previewAtimg" class="upload-img-child">
+                        </div>
+                    </div>
+                </div>
+                <span class="upload-wrapper-span"></span>
+                <div class="upload-wrapper-row">
+                    <div id="upload-wrapper-child" class="upload-wrapper-child">
+                        <div style="float: right; width: 10px; height: 20px;">
+                            <a class="removeImgBtnChild" style="color:red;" href="#">X</a>
+                        </div>
+                        <div id="image_preview" class="image_preview">
+                            <img id="image_previewAtimg" class="upload-img-child">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="multiDragUpload.js"></script>
+
+</html>
