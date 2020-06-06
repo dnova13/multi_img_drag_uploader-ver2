@@ -114,6 +114,7 @@ removeImgPlateBtn.addEventListener('click', (e) => {
         resizeFilesArray.splice(index, 1);
     }
     settingImg(resizeFilesArray);
+    resetWrapper();
 
     console.log(resizeFilesArray);
 });
@@ -143,6 +144,7 @@ removeAllBtn.addEventListener('click', e => {
 
     resizeFilesArray = new Array();
     resetImg();
+    resetWrapper();
 
     console.log(resizeFilesArray);
     chkFile = 0;
@@ -152,18 +154,24 @@ wrapperChildDivs.forEach((wrapperChild, index) => {
 
     wrapperChild.addEventListener('click', e => {
 
+        console.log("wrapper3 arrlength " + resizeFilesArray.length);
+
         e.preventDefault();
 
         if (resizeFilesArray.length - 1 >= index) {
 
-            for (let i = 0; i < wrapperChildDivs.length; i++) {
-                wrapperChildDivs[i].style.borderColor = "black";
-            }
+            resetWrapper();
 
-            e.target.style.borderColor = "red";
+            wrapperChild.style.borderColor = "red";
+            wrapperChild.style.borderWidth = "3px";
 
             imageUploadPlate.setAttribute('src', resizeFilesArray[index].imgUrl);
             imageUploadPlate.setAttribute('alt', index);
+        }
+
+        if (resizeFilesArray.length == index) {
+            wrapperChildDivs[index].style.borderColor = "black";
+            wrapperChildDivs[index].style.borderWidth = "1px";
         }
     })
 });
@@ -236,7 +244,7 @@ const load_image = (e) => {
                     // 비동기
                     image.onload = imageEvent => {
                         // 이미지가 로드가 되면! 리사이즈 함수가 실행되도록 합니다.
-                        resize_image(image, file.name, i, filesArr.length);
+                        resize_image(image, file.name);
                     }
                 }
                 reader.readAsDataURL(file);
@@ -263,6 +271,14 @@ const resetImg = () => {
     });
 }
 
+const resetWrapper = () => {
+
+    for (let i = 0; i < wrapperChildDivs.length; i++) {
+        wrapperChildDivs[i].style.borderColor = "black";
+        wrapperChildDivs[i].style.borderWidth = "1px";
+    }
+}
+
 const settingImg = (resizeFilesArray) => {
 
     console.log("setting");
@@ -284,7 +300,7 @@ const settingImg = (resizeFilesArray) => {
     }
 }
 
-const resize_image = (image, fileName, index, fileLength) => {
+const resize_image = (image, fileName) => {
 
     console.log("resize");
 
@@ -315,7 +331,15 @@ const resize_image = (image, fileName, index, fileLength) => {
     // 다시 파일로 옮김.
     resizeFilesArray.push(resizeFile);
 
-    if (fileLength - 1 === index) settingImg(resizeFilesArray);
+    let i = resizeFilesArray.length - 1;
+
+    imageChildren[i].setAttribute('src', resizeFilesArray[i].imgUrl);
+    imageChildren[i].style.display = "block"
+
+    imageUploadPlate.setAttribute('src', resizeFilesArray[i].imgUrl);
+    imageUploadPlate.style.opacity = 1;
+    imageUploadPlate.style.width = "270px";
+    imageUploadPlate.style.height = "230px";
 };
 
 // 이미지 비율 조정

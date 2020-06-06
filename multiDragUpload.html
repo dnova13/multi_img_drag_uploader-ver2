@@ -105,21 +105,24 @@
         <br>
         <div class="image-upload">
             <div class="upload-plate">
-
-                <div id="upload-wrapper" class="upload-wrapper">
-                    <div style="float: right; width: 10px; height: 20px;">
-                        <a id="removeImgBtn" style="color:red;" href="#">X</a>
-                    </div>
-                    <label for="upload" class="upload-label">
-                        <p style="padding-bottom: 5px; font-size: 24px;">Click or Drag Here</p>
-                        <div id="image_preview" class="image_preview">
-                            <img id="image_previewAtimg" class="upload-img"
-                                src="https://uploads.codesandbox.io/uploads/user/1dcc6c5f-ac13-4c27-b2e3-32ade1d213e9/6YCZ-upload.svg">
+                <label for="upload">
+                    <div id="upload-wrapper" class="upload-wrapper">
+                        <div>
+                            <div style="float: right; width: 10px; height: 20px;">
+                                <a id="removeImgBtn" style="color:red;" href="#">X</a>
+                            </div>
+                            <label for="upload" class="upload-label">
+                                <p style="padding-bottom: 5px; font-size: 24px;">Click or Drag Here</p>
+                                <div id="image_preview" class="image_preview">
+                                    <img id="image_previewAtimg" class="upload-img"
+                                        src="https://uploads.codesandbox.io/uploads/user/1dcc6c5f-ac13-4c27-b2e3-32ade1d213e9/6YCZ-upload.svg">
+                                </div>
+                            </label>
                         </div>
-                    </label>
-                    <input id="upload" class="image-upload" style="display:none;" type="file" accept="image/*"
-                        multiple="multiple">
-                </div>
+                    </div>
+                </label>
+                <input id="upload" class="image-upload" style="display:none;" type="file" accept="image/*"
+                    multiple="multiple">
                 <button id="removeAll" class="btn btn-outline-primary btn" style="display: block; margin-top: 10px;"
                     type="button">Remove All</button>
                 <img src="nothing.png" height="10px">
